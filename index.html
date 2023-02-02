@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stle.css">
+</head>
+
+<body>
+
+    <h2 id="title">Hello</h2>
+    <h2>world</h2>
+    <div id="content"></div>
+    <ul id="userList"></ul>
+
+
+
+
+
+    <script>
+
+        let users = [
+            { name: 'giorgi', age: 20 },
+            { name: 'ana', age: 30 },
+            { name: 'eka', age: 60 },
+            { name: 'giorgi', age: 20 },
+            { name: 'ana', age: 30 },
+            { name: 'eka', age: 60 },
+
+        ]
+
+
+        const userList = document.getElementById('userList')
+        for (let index = 0; index < users.length; index++) {
+            const element = users[index];
+            const li = document.createElement('li')
+            li.textContent = `name is ${element.name} and ${element.age}  ${element.age < 33 ? 'this is teenager' : 'this is adult'}`
+            li.classList.add('list')
+            userList.appendChild(li)
+
+        }
+
+
+        const title = document.getElementById('title')
+        // title.style.color = 'red'
+        title.classList.add('title')
+        title.textContent = 'this is javascript'
+
+
+        const getFontSize = () => {
+            title.style.fontSize = '60px'
+        }
+
+
+        title.addEventListener('click', getFontSize)
+        title.addEventListener('mouseover', () => {
+            title.style.backgroundColor = 'blue'
+        })
+        title.addEventListener('mouseout', () => {
+            title.style.backgroundColor = 'white'
+        })
+
+
+        const content = document.getElementById('content')
+
+
+        const img = document.createElement('img')
+        img.setAttribute('src', 'https://cdn.onoff.ge/media/thumbs/068/0687343.png')
+        img.setAttribute('alt', 'tv')
+
+
+        img.addEventListener('mousemove', () => {
+
+            img.classList.add('image-wrapper')
+        })
+
+        img.addEventListener('mouseout', () => {
+            img.classList.remove('image-wrapper')
+        })
+        img.addEventListener('click', () => {
+            img.remove()
+        })
+
+        content.appendChild(img)
+
+
+
+    </script>
+</body>
+
+</html>
